@@ -1,0 +1,2 @@
+ru.devinfra.keycloak.auth.requirerole.RequireRoleAuthenticatorFactory
+ru.devinfra.keycloak.auth.requirerole.RequireRoleDirectGrantAuthenticatorFactory
