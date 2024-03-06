@@ -41,7 +41,7 @@ public class RequireRoleDirectGrantAuthenticator extends RequireRoleAuthenticato
             return;
         }
 
-        LOG.debugf("Access denied because of missing role. realm=%s username=%s role=%s", realm.getName(), user.getUsername(), roleName);
+        LOG.infof("Access denied because of missing role. realm=%s username=%s role=%s", realm.getName(), user.getUsername(), roleName);
         String responsePhrase = String.format("Access denied because of missing role. realm=%s username=%s role=%s", realm.getName(), user.getUsername(), roleName);
 
         Response challengeResponse = errorResponse(Response.Status.UNAUTHORIZED.getStatusCode(), "missing_role", responsePhrase);

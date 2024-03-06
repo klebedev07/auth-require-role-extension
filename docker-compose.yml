@@ -1,0 +1,19 @@
+version: '3'
+services:
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:23.0.4
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      DEBUG_PORT: '*:8787'
+      DEBUG: 'true'
+    command: ['start-dev', '--debug', '--import-realm', '--features=client-policies']
+    ports:
+      - 8080:8080
+      - 8443:8443
+      - 8787:8787 # Debug port
+    volumes:
+    - ./target/auth-require-role-extension.jar:/opt/keycloak/providers/auth-require-role-extension.jar
+    - ./src/test/resources/:/opt/keycloak/data/import
+

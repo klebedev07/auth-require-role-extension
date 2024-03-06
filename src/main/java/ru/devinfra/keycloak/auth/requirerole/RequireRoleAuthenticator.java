@@ -106,7 +106,7 @@ public class RequireRoleAuthenticator implements Authenticator {
             return true;
         }
 
-        LOG.debugf("Checking if user=%s has role=%s", user.getUsername(), requiredRole.getName());
+        LOG.infof("Checking if user=%s has role=%s", user.getUsername(), requiredRole.getName());
 
         // First perform cheap role check for direct or composite roles
         if (RoleUtils.hasRole(user.getRoleMappingsStream(), requiredRole)) {
@@ -119,7 +119,7 @@ public class RequireRoleAuthenticator implements Authenticator {
             return true;
         }
 
-        LOG.debugf("User does not have the required role. user=%s role=%s assignedRoles=%s", user.getUsername(), requiredRole, nestedAssignedRoles);
+        LOG.infof("User does not have the required role. user=%s role=%s assignedRoles=%s", user.getUsername(), requiredRole, nestedAssignedRoles);
         return false;
     }
 
